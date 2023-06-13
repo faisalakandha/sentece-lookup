@@ -159,54 +159,46 @@ function copyResult() {
 }
 
 const callApi = () => {
-	const text = textIp.value;
-	const len = text.split(" ").filter(function (n) {
-		return n !== "";
-	}).length;
-	if (len < 200) {
-		myFunction();
-		return;
-	}
-	const formdata = new FormData();
-	formdata.append("key", "6656b2a36412e218859c9a20a46fedc0");
-	formdata.append("txt", textIp.value);
-	formdata.append("sentences", currentVal.innerText);
+    const text = textIp.value;
+    const len = text.split(" ").filter(function(n) {
+        return n !== "";
+    }).length;
 
-	const requestOptions = {
-		method: "POST",
-		body: formdata,
-		redirect: "follow",
-	};
-	console.log("first");
-	loader.style.display = "block";
-	console.log(loader.classList);
-	const response = fetch(
-		"https://api.meaningcloud.com/summarization-1.0",
-		requestOptions
-	)
-		.then((response) => ({
-			status: response.status,
-			body: response.json(),
-		}))
-		.then(({ status, body }) => {
-			body.then((data) => {
-				if (data.summary) {
-					summary.innerText = data.summary;
-					copyButton.style.display = "block";
-				} else {
-					summary.innerText = "Invalid";
-				}
-				setTimeout(() => {
-					window.scrollBy(0, 300);
-				}, 1000);
-			});
-		})
-		.catch((error) => console.log("error", error))
-		.finally(() => {
-			loader.style.display = "none";
-			console.log(loader.classList);
-		});
+    if (len < 200) {
+        myFunction();
+        return;
+    }
+
+    const requestOptions = {
+        method: "POST",
+        body: JSON.stringify({ text: text }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    loader.style.display = "block";
+
+    fetch("api.php", requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.summary) {
+                summary.innerText = data.summary;
+                copyButton.style.display = "block";
+            } else {
+                summary.innerText = "Invalid";
+            }
+            setTimeout(() => {
+                window.scrollBy(0, 300);
+            }, 1000);
+        })
+        .catch((error) => console.log("error", error))
+        .finally(() => {
+            loader.style.display = "none";
+        });
 };
+
+
 function myFunction(text = "Minimum number of words is 200", time = 3000) {
 	// Get the snackbar DIV
 	var x = document.getElementById("snackbar");
