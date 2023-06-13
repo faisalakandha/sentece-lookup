@@ -19,4 +19,20 @@ function callMeaningCloudAPI($text) {
 
     return $response;
 }
+
+function IsUserAdmin($request)
+{
+    return current_user_can('manage_options');
+}
+
+add_action('rest_api_init', function () {
+
+    register_rest_route('sentencesummary/v1', 'summary', array(
+        'methods' => 'POST',
+        'callback' => 'callMeaningCloudAPI',
+        'args' => array(),
+        'permission_callback' => 'IsUserAdmin'
+    ));
+});
+
 ?>

@@ -8,6 +8,7 @@ const uploadButton = document.querySelector("#upload-btn");
 const loader = document.getElementById("loader");
 const summarizeButton = document.getElementById("summarize-btn");
 const copyButton = document.getElementById("copy-btn");
+const siteUrl = '<?php get_site_url(); ?>';
 
 let text = "";
 let selectedFile = null;
@@ -179,7 +180,7 @@ const callApi = () => {
 
     loader.style.display = "block";
 
-    fetch("api.php", requestOptions)
+    fetch(siteUrl + '/wp-json/sentencesummary/v1/summary', requestOptions)
         .then((response) => response.json())
         .then((data) => {
             if (data.summary) {
