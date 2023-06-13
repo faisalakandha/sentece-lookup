@@ -1,0 +1,165 @@
+html {
+	scroll-behavior: smooth;
+}
+body {
+	padding: 2rem;
+}
+.range-div {
+	width: 400px;
+	border-radius: 1rem;
+}
+.range-values {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.gap-line {
+	height: 1rem;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+}
+.mainText {
+	width: 100%;
+	min-height: 250px;
+	border: none;
+	letter-spacing: 1px;
+	padding: 1rem;
+}
+.summary-container {
+	width: 60%;
+	margin-top: 1rem;
+	border: 1px solid #888;
+	border-radius: 5px;
+}
+.input-box {
+	width: 60%;
+	border: 1px solid #888;
+	border-radius: 5px;
+}
+.header-box {
+	display: flex;
+	border-radius: 5px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	background-color: rgb(241, 245, 248);
+}
+
+.footer-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem;
+	border-top: 1px solid #888;
+}
+.summarize-btn {
+	background-color: #fa565d;
+	padding: 8px 12px;
+	color: #fff;
+	border-radius: 8px;
+	outline: none;
+}
+
+#summary {
+	padding: 1rem;
+}
+
+#word-count {
+	min-width: 100px;
+	padding: 0.5rem 1rem;
+}
+
+.empty-div {
+	min-width: 100px;
+}
+
+.hide {
+	display: none;
+}
+
+#file-upload {
+	display: none;
+}
+/* #summary {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+} */
+.loader {
+	width: 20%;
+	margin: auto;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin-left: -125px; /* Divide value of min-width by 2 */
+	background-color: #333; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 1; /* Add a z-index if needed */
+	left: 50%; /* Center the snackbar */
+	bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
