@@ -8,7 +8,7 @@ const uploadButton = document.querySelector("#upload-btn");
 const loader = document.getElementById("loader");
 const summarizeButton = document.getElementById("summarize-btn");
 const copyButton = document.getElementById("copy-btn");
-const siteUrl = '<?php get_site_url(); ?>';
+const siteUrl = 'http://localhost';
 
 let text = "";
 let selectedFile = null;
