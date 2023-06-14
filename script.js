@@ -159,46 +159,6 @@ function copyResult() {
 	myFunction("Text Copied to clipboard", 3000);
 }
 
-const callApi = () => {
-    const text = textIp.value;
-    const len = text.split(" ").filter(function(n) {
-        return n !== "";
-    }).length;
-
-    if (len < 200) {
-        myFunction();
-        return;
-    }
-
-    const requestOptions = {
-        method: "POST",
-        body: JSON.stringify({ text: text }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    };
-
-    loader.style.display = "block";
-
-    fetch(siteUrl + '/wp-json/sentencesummary/v1/summary', requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.summary) {
-                summary.innerText = data.summary;
-                copyButton.style.display = "block";
-            } else {
-                summary.innerText = "Invalid";
-            }
-            setTimeout(() => {
-                window.scrollBy(0, 300);
-            }, 1000);
-        })
-        .catch((error) => console.log("error", error))
-        .finally(() => {
-            loader.style.display = "none";
-        });
-};
-
 
 function myFunction(text = "Minimum number of words is 200", time = 3000) {
 	// Get the snackbar DIV
