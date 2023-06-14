@@ -8,7 +8,6 @@ const uploadButton = document.querySelector("#upload-btn");
 const loader = document.getElementById("loader");
 const summarizeButton = document.getElementById("summarize-btn");
 const copyButton = document.getElementById("copy-btn");
-const siteUrl = 'http://wp.docker.localhost:8000';
 
 let text = "";
 let selectedFile = null;
