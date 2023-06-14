@@ -19,7 +19,7 @@ function SentenceSummary()
 			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="<?php echo plugins_url() . '/sentence-summary/style.css' ?>" />
+		<link rel="stylesheet" href="<?php echo plugin_dir_url(__FILE__) . 'style.css' ?>" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -83,17 +83,17 @@ function SentenceSummary()
 			</div>
 			<div id="summary">
 				<p class="summary-text"></p>
-				<img src="<?php echo plugins_url() . '/sentence-summary/loading.gif' ?>" alt="" class="loader" id="loader" />
+				<img src="<?php echo plugin_dir_url(__FILE__) . 'loading.gif' ?>" alt="" class="loader" id="loader" />
 			</div>
 		</div>
 		<div id="snackbar"></div>
 
-		<script src="<?php echo plugins_url() . '/sentence-summary/pdf.js' ?>"></script>
-		<script src="<?php echo plugins_url() . '/sentence-summary/docToText.js' ?>"></script>
+		<script src="<?php echo plugin_dir_url(__FILE__) . 'pdf.js' ?>"></script>
+		<script src="<?php echo plugin_dir_url(__FILE__) . 'docToText.js' ?>"></script>
 		<script>
-			pdfjsLib.GlobalWorkerOptions.workerSrc = "<?php echo plugins_url() . '/sentence-summary/pdf.worker.js' ?>";
+			pdfjsLib.GlobalWorkerOptions.workerSrc = "<?php echo plugin_dir_url(__FILE__) . 'pdf.worker.js' ?>";
 		</script>
-		<script src="<?php echo plugins_url() . '/sentence-summary/script.js' ?>"></script>
+		<script src="<?php echo plugin_dir_url(__FILE__) . 'script.js' ?>"></script>
 	</body>
 </html>
 
