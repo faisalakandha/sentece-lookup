@@ -83,17 +83,17 @@ function SentenceSummary()
 			</div>
 			<div id="summary">
 				<p class="summary-text"></p>
-				<img src="<?php echo plugin_dir_path(__FILE__) . 'loading.gif' ?>" alt="" class="loader" id="loader" />
+				<img src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
 			</div>
 		</div>
 		<div id="snackbar"></div>
 
-		<script src="<?php echo plugin_dir_path(__FILE__) . 'pdf.js' ?>"></script>
-		<script src="<?php echo plugin_dir_path(__FILE__) . 'docToText.js' ?>"></script>
+		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/pdf.js"></script>
+		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/docToText.js"></script>
 		<script>
-			pdfjsLib.GlobalWorkerOptions.workerSrc = "<?php echo plugin_dir_path(__FILE__) . 'pdf.worker.js' ?>";
+			pdfjsLib.GlobalWorkerOptions.workerSrc = "http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/pdf.worker.js";
 		</script>
-		<script src="<?php echo plugin_dir_path(__FILE__) . 'script.js' ?>"></script>
+		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/script.js"></script>
 	</body>
 </html>
 
