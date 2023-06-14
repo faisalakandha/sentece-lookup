@@ -66,6 +66,9 @@ function SentenceSummary()
             loader.style.display = "none";
         });
 };
+			const handleClick = (e) => {
+	callApi();
+};
 
 		</script>
 	</head>
