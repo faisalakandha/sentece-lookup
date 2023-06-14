@@ -146,9 +146,6 @@ textIp.addEventListener("input", (e) => {
 	updateWordCount(e.target.value);
 });
 
-const handleClick = (e) => {
-	callApi();
-};
 
 function clearText() {
 	setInputValue("");
