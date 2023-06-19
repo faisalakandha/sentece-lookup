@@ -1,11 +1,17 @@
 <?php
-function callMeaningCloudAPI($text) {
+function callMeaningCloudAPI($req) {
+
+$parameters = $req->get_params();
+// return $parameters['my_nonce'];
+ if (wp_verify_nonce( $parameters['my_nonce'], 'kamranfaisal' ) ) {
+
     $apiKey = "6656b2a36412e218859c9a20a46fedc0";
     $url = "https://api.meaningcloud.com/summarization-1.0";
 
     $postData = array(
         'key' => $apiKey,
-        'txt' => $text
+        'txt' => $parameters['txt'],
+        'sentences' => $parameters['sentences']
     );
 
     $ch = curl_init();
@@ -13,11 +19,22 @@ function callMeaningCloudAPI($text) {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
     $response = curl_exec($ch);
     curl_close($ch);
 
-    return $response;
+    return json_decode($response);
+ }
+   return json_encode( 'Warning !! You are not authorized !' );
 }
+
+
+add_action('rest_api_init', function () {
+
+    register_rest_route('sentencesummary/v1', 'summary', array(
+        'methods' => 'POST',
+        'callback' => 'callMeaningCloudAPI',
+        'args' => array(),
+    ));
+});
 
 ?>
