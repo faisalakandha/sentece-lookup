@@ -26,51 +26,54 @@ function SentenceSummary()
 			crossorigin="anonymous"
 		></script>
 		<script>
-			const callApi = () => {
-    const text = textIp.value;
-    const len = text.split(" ").filter(function(n) {
-        return n !== "";
-    }).length;
+    const callApi = () => {
+        const text = textIp.value;
+        const len = text.split(" ").filter(function (n) {
+            return n !== "";
+        }).length;
 
-    if (len < 200) {
-        myFunction();
-        return;
-    }
-
-    const requestOptions = {
-        method: "POST",
-        body: JSON.stringify({ text: text }),
-        headers: {
-               'Content-Type': 'application/json',
-               'X-WP-Nonce': "<?php echo wp_create_nonce('wp_rest') ?>"
+        if (len < 200) {
+            myFunction();
+            return;
         }
+
+		const nonce =  "<?php echo wp_create_nonce( 'kamranfaisal'); ?>";
+
+        const requestOptions = {
+            method: "POST",
+            body: JSON.stringify({ txt: textIp.value, sentences: currentVal.innerText, my_nonce:nonce }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        loader.style.display = "block";
+
+        fetch("http://wp.docker.localhost:8000/wp-json/sentencesummary/v1/summary", requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(JSON.stringify(data));
+                if (data.summary) {
+                    summary.innerText = data.summary;
+                    copyButton.style.display = "block";
+                } else {
+                    summary.innerText = "Invalid";
+                }
+                setTimeout(() => {
+                    window.scrollBy(0, 300);
+                }, 1000);
+            })
+            .catch((error) => console.log("error", error))
+            .finally(() => {
+                loader.style.display = "none";
+            });
     };
 
-    loader.style.display = "block";
+    const handleClick = (e) => {
+        callApi();
+    };
+</script>
 
-    fetch(siteUrl + '/wp-json/sentencesummary/v1/summary', requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.summary) {
-                summary.innerText = data.summary;
-                copyButton.style.display = "block";
-            } else {
-                summary.innerText = "Invalid";
-            }
-            setTimeout(() => {
-                window.scrollBy(0, 300);
-            }, 1000);
-        })
-        .catch((error) => console.log("error", error))
-        .finally(() => {
-            loader.style.display = "none";
-        });
-};
-			const handleClick = (e) => {
-	callApi();
-};
-
-		</script>
 	</head>
 	<body>
 		<div class="input-box">
