@@ -145,7 +145,6 @@ textIp.addEventListener("input", (e) => {
 	updateWordCount(e.target.value);
 });
 
-
 function clearText() {
 	setInputValue("");
 }
@@ -154,8 +153,6 @@ function copyResult() {
 	navigator.clipboard.writeText(summary.innerText);
 	myFunction("Text Copied to clipboard", 3000);
 }
-
-
 function myFunction(text = "Minimum number of words is 200", time = 3000) {
 	// Get the snackbar DIV
 	var x = document.getElementById("snackbar");
