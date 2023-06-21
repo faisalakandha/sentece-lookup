@@ -24,21 +24,20 @@ body {
 }
 .mainText {
 	width: 100%;
-	min-height: 250px;
+	min-height: 350px;
 	border: none;
 	letter-spacing: 1px;
 	padding: 1rem;
 }
 .summary-container {
-	width: 60%;
-	margin-top: 1rem;
+	width: 100%;
 	border: 1px solid #888;
-	border-radius: 5px;
+	min-height: 419px;
+	overflow: auto;
 }
 .input-box {
-	width: 60%;
+	width: 100%;
 	border: 1px solid #888;
-	border-radius: 5px;
 }
 .header-box {
 	display: flex;
@@ -66,6 +65,7 @@ body {
 
 #summary {
 	padding: 1rem;
+	height: 317px;
 }
 
 #word-count {

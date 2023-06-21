@@ -76,67 +76,78 @@ function SentenceSummary()
 
 	</head>
 	<body>
-		<div class="input-box">
-			<div class="header-box">
-				<!-- heading -->
-				<p>Choose the Size of the Summary:</p>
-				<div class="range-div">
-					<div class="range-values">
-						<p>Short</p>
-						<p id="currentValue">19</p>
-						<p>Long</p>
+		<div class='container-fluid'>
+			<div class='row'>
+				<!--- Heading -->
+				<div style='border-top-right-radius:16px; border-top-left-radius:16px;'  class="header-box">
+					
+					<p>Choose the Size of the Summary:</p>
+					<div class="range-div">
+						<div class="range-values">
+							<p>Short</p>
+							<p id="currentValue">19</p>
+							<p>Long</p>
+						</div>
+						<input
+							type="range"
+							class="form-range"
+							id="customRange1"
+							max="30"
+							min="1"
+							placeholder="Enter the text"
+						/>
 					</div>
-					<input
-						type="range"
-						class="form-range"
-						id="customRange1"
-						max="30"
-						min="1"
-						placeholder="Enter the text"
-					/>
-				</div>
-			</div>
-			<textarea
-				name="mainText"
-				class="mainText"
-				placeholder="Enter the text here"
-			></textarea>
-			<div class="footer-box">
-				<div id="word-count">
-					<p id="word-count-text"></p>
-					<input
-						type="file"
-						name=""
-						id="file-upload"
-						accept=".pdf, .docx, .txt"
-					/>
-					<button onclick="uploadFileHandler()" id="upload-btn">
-						Upload
-					</button>
-				</div>
-				<button
-					onclick="handleClick()"
-					id="summarize-btn"
-					class="summarize-btn">
-					Summarize
-				</button>
-				<div class="empty-div">
-					<button onclick="clearText()">Clear Text</button>
-				</div>
-			</div>
-		</div>
-		<div class="summary-container">
-			<div class="header-box">
-				<p>Summary:</p>
-				<button onclick="copyResult()" id="copy-btn">Copy</button>
-			</div>
-			<div id="summary">
-				<p class="summary-text"></p>
-				<img src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
-			</div>
-		</div>
-		<div id="snackbar"></div>
+					
+					<p>Summary:</p> <br />
+					<button onclick="copyResult()" id="copy-btn">Copy</button>
 
+				</div>
+			</div>
+
+			<div class="row">
+				<div style='padding:0;' class='col'>
+					<div style='border-bottom-left-radius:16px;' class="input-box">
+						<textarea
+							name="mainText"
+							class="mainText"
+							placeholder="Enter the text here"
+						></textarea>
+						<div class="footer-box">
+							<div id="word-count">
+								<p id="word-count-text"></p>
+								<input
+									type="file"
+									name=""
+									id="file-upload"
+									accept=".pdf, .docx, .txt"
+								/>
+								<button onclick="uploadFileHandler()" id="upload-btn">
+									Upload
+								</button>
+							</div>
+							<button
+								onclick="handleClick()"
+								id="summarize-btn"
+								class="summarize-btn">
+								Summarize
+							</button>
+							<div class="empty-div">
+								<button onclick="clearText()">Clear Text</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style='padding:0;' class='col'>
+					<div style='border-bottom-right-radius:16px;' class="summary-container">
+						<div id="summary">
+							<p class="summary-text"></p>
+							<img src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
+						</div>
+					</div>
+				</div>
+				<div id="snackbar"></div>
+			</div>
+		</div>
 		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/pdf.js"></script>
 		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/docToText.js"></script>
 		<script>
