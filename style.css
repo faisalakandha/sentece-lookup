@@ -3,6 +3,7 @@ html {
 }
 body {
 	padding: 2rem;
+	background-color: #f4f4f4;
 }
 .range-div {
 	width: 400px;
@@ -25,19 +26,21 @@ body {
 .mainText {
 	width: 100%;
 	min-height: 350px;
-	border: none;
+	border-left:none;
+	border-bottom:none;
 	letter-spacing: 1px;
 	padding: 1rem;
+	outline:none;
+	border-color: #c2c2c2
 }
 .summary-container {
 	width: 100%;
-	border: 1px solid #888;
 	min-height: 419px;
 	overflow: auto;
+	background-color: #fff;
 }
 .input-box {
 	width: 100%;
-	border: 1px solid #888;
 }
 .header-box {
 	display: flex;
@@ -45,7 +48,7 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.5rem 1rem;
-	background-color: rgb(241, 245, 248);
+	background-color: #fff;
 }
 
 .footer-box {
@@ -53,7 +56,8 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.5rem;
-	border-top: 1px solid #888;
+	border-right: 1px solid #C2C2C2;
+	background-color: #fff;
 }
 .summarize-btn {
 	background-color: #fa565d;
@@ -66,6 +70,7 @@ body {
 #summary {
 	padding: 1rem;
 	height: 317px;
+	border-top: 1px solid #C2C2C2;
 }
 
 #word-count {

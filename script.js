@@ -9,6 +9,11 @@ const loader = document.getElementById("loader");
 const summarizeButton = document.getElementById("summarize-btn");
 const copyButton = document.getElementById("copy-btn");
 
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+
 let text = "";
 let selectedFile = null;
 const setDefault = () => {
