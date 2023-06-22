@@ -83,14 +83,14 @@ function SentenceSummary()
 				<!--- Heading -->
 				<div class='row header-box' style='border-top-right-radius:16px; border-top-left-radius:16px;'>		
 				<div class='col-2'>			
-					<p style='margin: 0; font-size: 16px; font-family: Open Sans,sans-serif; font-weight: 600; line-height: 24px; color: #434343;'>Summarizer <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="The Summarizer condenses articles, papers, and other documents into a bulleted Key Sentences list or into a new paragraph."> <i class="fa fa-info-circle"></i></span></p>
+					<p style='padding-top: 5px; margin: 0; font-size: 16px; font-family: Open Sans,sans-serif; font-weight: 600; line-height: 24px; color: #434343;'>Summarizer <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="The Summarizer condenses articles, papers, and other documents into a bulleted Key Sentences list or into a new paragraph."> <i class="fa fa-info-circle"></i></span></p>
 				</div>
-				<div class='col-6'>	
-					<div style='display:flex; padding-top:16px;' class="range-div">
+				<div class='col-9'>	
+					<div style='float:right; display:flex; padding-top:16px;' class="range-div">
 					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length:</p>
 						<p style='padding-left:20px; padding-right:20px;'>Short</p>
 						<div class="range-values">
-					<!----			<p id="currentValue">19</p> --->
+								<p id="currentValue">19</p> 
 						</div>
 						<input
 							type="range"
@@ -103,16 +103,16 @@ function SentenceSummary()
 						<p style='padding-left:20px; padding-right:20px;'>Long</p>
 					</div>
 				</div>
-				<div class='col-4'>	
-					<p>Summary:</p>
-					<button onclick="copyResult()" id="copy-btn">Copy</button>
+
+				<div class='col-1'>
 				</div>
+
 				</div>
 
 			<div class="row">
 				<div style='padding:0;' class='col'>
 					<div style='border-bottom-left-radius:16px;' class="input-box">
-						<textarea style='font-family:Open Sans,sans-serif; font-size:16px;'
+						<textarea style='font-family:Open Sans,sans-serif; font-size:16px;resize:none;'
 							name="mainText"
 							class="mainText"
 							placeholder='Enter or paste your text and press "Summarize."' 
@@ -126,19 +126,16 @@ function SentenceSummary()
 									id="file-upload"
 									accept=".pdf, .docx, .txt"
 								/>
-								<button onclick="uploadFileHandler()" id="upload-btn">
-									Upload
+								<button style='border:none; color: #000;' class="btn btn-primary  rounded-pill bg-transparent" onclick="uploadFileHandler()" id="upload-btn">
+									<i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload
 								</button>
 							</div>
 							<button
 								onclick="handleClick()"
 								id="summarize-btn"
-								class="summarize-btn">
+								class="btn btn-primary btn-md rounded-pill">
 								Summarize
 							</button>
-							<div class="empty-div">
-								<button onclick="clearText()">Clear Text</button>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -150,9 +147,9 @@ function SentenceSummary()
 						</div>
 					</div>
 				</div>
-				<div id="snackbar"></div>
 			</div>
 		</div>
+		<div id="snackbar"> <i class="fa-solid fa-siren-on fa-fade"></i> <i class="fa-solid fa-siren-on fa-fade"></i>  You need minimum 200 Words <i class="fa-regular fa-circle-exclamation"></i> <i class="fa-regular fa-circle-exclamation"></i> </div>
 		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/pdf.js"></script>
 		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/docToText.js"></script>
 		<script>

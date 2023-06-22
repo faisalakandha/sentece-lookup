@@ -158,10 +158,10 @@ function copyResult() {
 	navigator.clipboard.writeText(summary.innerText);
 	myFunction("Text Copied to clipboard", 3000);
 }
-function myFunction(text = "Minimum number of words is 200", time = 3000) {
+function myFunction(text = " ", time = 3000) {
 	// Get the snackbar DIV
 	var x = document.getElementById("snackbar");
-	x.innerText = text;
+	//x.innerText = text;
 	// Add the "show" class to DIV
 	x.className = "show"; // After 3 seconds, remove the show class from DIV
 
