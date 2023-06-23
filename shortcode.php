@@ -57,7 +57,7 @@ function SentenceSummary()
                 console.log(JSON.stringify(data));
                 if (data.summary) {
                     summary.innerText = data.summary;
-                    copyButton.style.display = "block";
+                    copyButton.classList.remove("disabled");
                 } else {
                     summary.innerText = "Invalid";
                 }
@@ -107,7 +107,7 @@ function SentenceSummary()
 				</div>
 
 				<div class='col-2'>
-					<button  style='white-space:nowrap; float:right;' class='btn btn-primary' onclick="copyResult()"><i class="fa-solid fa-copy"></i> Copy</button>
+					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary' onclick="copyResult()"><i class="fa-solid fa-copy"></i> Copy</button>
 				</div>
 
 				</div>
@@ -122,7 +122,7 @@ function SentenceSummary()
 						></textarea>
 						<div class="footer-box">
 							<div id="word-count">
-								<p id="word-count-text"></p>
+								<p style='font-weight:600;' id="word-count-text"></p>
 								<input
 									type="file"
 									name=""
@@ -133,11 +133,11 @@ function SentenceSummary()
 									<i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload
 								</button>
 							</div>
-							<button
+							<button style='white-space:nowrap;'
 								onclick="handleClick()"
 								id="summarize-btn"
 								class="btn btn-primary btn-md rounded-pill shadow-lg">
-								Summarize
+								<i class="fa fa-scissors" aria-hidden="true"></i> Summarize
 							</button>
 						</div>
 					</div>
@@ -152,7 +152,7 @@ function SentenceSummary()
 				</div>
 			</div>
 		</div>
-		<div id="snackbar"> <i class="fa-solid fa-siren-on fa-fade"></i> <i class="fa-solid fa-siren-on fa-fade"></i>  You need minimum 200 Words <i class="fa-regular fa-circle-exclamation"></i> <i class="fa-regular fa-circle-exclamation"></i> </div>
+		<div id="snackbar"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  You need minimum 200 Words <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </div>
 		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/pdf.js"></script>
 		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/docToText.js"></script>
 		<script>

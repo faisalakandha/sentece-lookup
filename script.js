@@ -22,7 +22,7 @@ const setDefault = () => {
 	textIp.value = "";
 	selectedFile = null;
 	loader.classList.add("hide");
-	copyButton.style.display = "none";
+	copyButton.classList.add("disabled");
 };
 
 setDefault();
@@ -155,9 +155,27 @@ function clearText() {
 }
 
 function copyResult() {
-	navigator.clipboard.writeText(summary.innerText);
-	myFunction("Text Copied to clipboard", 3000);
+  // Get the textarea element
+  var textarea = summary.innerText;
+
+  // Select the text in the textarea
+  textarea.select();
+
+  try {
+    // Execute the copy command using execCommand
+    var successful = document.execCommand('copy');
+    var message = successful ? 'Text copied to clipboard successfully.' : 'Unable to copy text to clipboard.';
+    console.log(message);
+
+    // Deselect the textarea
+    textarea.setSelectionRange(0, 0);
+  } catch (err) {
+    console.error('Failed to copy text to clipboard: ', err);
+  }
 }
+
+
+
 function myFunction(text = " ", time = 3000) {
 	// Get the snackbar DIV
 	var x = document.getElementById("snackbar");
