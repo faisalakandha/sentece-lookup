@@ -89,11 +89,9 @@ function SentenceSummary()
 				</div>
 				<div class='col-6'>	
 					<div style='display:flex; padding-top:16px;' class="range-div">
-					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length:</p>
-						<p style='padding-left:20px; padding-right:20px;'>Short</p>
-						<div class="range-values">
-								<p id="currentValue">19</p> 
-						</div>
+					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length: <p style='white-space:nowrap; color:red; font-weight:600px;' id="currentValue">  19</p> </p>
+					<div style='display:flex; position:absolute; margin-left:150px;'>	
+					<p style='padding-left:20px; padding-right:20px;'>Short</p>
 						<input
 							type="range"
 							class="form-range"
@@ -104,10 +102,11 @@ function SentenceSummary()
 						/>
 						<p style='padding-left:20px; padding-right:20px;'>Long</p>
 					</div>
+					</div>
 				</div>
 
 				<div class='col-2'>
-					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary' onclick="copyResult()"><i class="fa-solid fa-copy"></i> Copy</button>
+					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary' onclick="copyTextToClipboard('summary-output')"><i class="fa-solid fa-copy"></i> Copy</button>
 				</div>
 
 				</div>
@@ -145,7 +144,7 @@ function SentenceSummary()
 				<div style='padding:0;' class='col'>
 					<div style='border-bottom-right-radius:16px;' class="summary-container">
 						<div id="summary">
-							<p class="summary-text"></p>
+							<p id='summary-output' class="summary-text"></p>
 							<img style='margin: 0 auto;' src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
 						</div>
 					</div>

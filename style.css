@@ -58,6 +58,7 @@ body {
 	padding: 0.5rem;
 	border-right: 1px solid #99c2ff;
 	background-color: #fff;
+	margin-top: -5.5px;
 }
 .summarize-btn {
 	background-color: #fa565d;

@@ -18,7 +18,7 @@ let text = "";
 let selectedFile = null;
 const setDefault = () => {
 	wordCount.classList.add("hide");
-	ranger.value = "1";
+	ranger.value = "19";
 	textIp.value = "";
 	selectedFile = null;
 	loader.classList.add("hide");
@@ -204,4 +204,27 @@ function pasteTextToTextarea() {
     });
 }
 
+// Copy Text to Clipboard
 
+function copyTextToClipboard(elementId) {
+  // Create a temporary textarea element
+  const textarea = document.createElement('textarea');
+
+  // Set the value of the textarea to the inner text of the specified element
+  textarea.value = document.getElementById(elementId).innerText;
+
+  // Append the textarea to the document body
+  document.body.appendChild(textarea);
+  console.log(textarea.value);
+  // Select the content of the textarea
+  textarea.select();
+
+  // Copy the selected text to the clipboard
+  document.execCommand('copy');
+
+  // Remove the temporary textarea
+  document.body.removeChild(textarea);
+
+  // Optionally, provide some visual feedback to the user
+  alert('Text copied to clipboard!');
+}
