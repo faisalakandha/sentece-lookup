@@ -145,7 +145,7 @@ function SentenceSummary()
 					<div style='border-bottom-right-radius:16px;' class="summary-container">
 						<div id="summary">
 							<p id='summary-output' class="summary-text"></p>
-							<img style='margin: 0 auto;' src="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
+							<img style='margin: 150px;' src="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
 						</div>
 					</div>
 				</div>

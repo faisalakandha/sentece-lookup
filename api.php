@@ -34,6 +34,31 @@ add_action('rest_api_init', function () {
         'methods' => 'POST',
         'callback' => 'callMeaningCloudAPI',
         'args' => array(),
+        'permission_callback' => function ($request) {
+            // Perform rate limiting check
+            $max_requests = 5; // Maximum number of requests allowed
+            $time_frame = 60; // Timeframe in seconds (e.g., 60 seconds = 1 minute)
+
+            $user_ip = $_SERVER['REMOTE_ADDR'];
+            $requests_made = get_user_meta($user_ip, 'api_requests_made', true);
+            $last_request_time = get_user_meta($user_ip, 'api_last_request_time', true);
+
+            // Check if the user has exceeded the maximum requests
+            if ($requests_made >= $max_requests) {
+                return false;
+            }
+
+            // Check if the user has made a request within the specified timeframe
+            if (time() - $last_request_time < $time_frame) {
+                return false;
+            }
+
+            // Increment the request count and update the last request time
+            update_user_meta($user_ip, 'api_requests_made', $requests_made + 1);
+            update_user_meta($user_ip, 'api_last_request_time', time());
+
+            return true;
+        },
     ));
 });
 
