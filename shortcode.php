@@ -82,10 +82,12 @@ function SentenceSummary()
 			
 				<!--- Heading -->
 				<div class='row header-box' style='border-top-right-radius:16px; border-top-left-radius:16px;'>		
-				<div class='col-2'>			
+				<div style='display:flex;' class='col-4'>			
 					<p style='padding-top: 5px; margin: 0; font-size: 16px; font-family: Open Sans,sans-serif; font-weight: 600; line-height: 24px; color: #434343;'>Summarizer <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="The Summarizer condenses articles, papers, and other documents into a bulleted Key Sentences list or into a new paragraph."> <i class="fa fa-info-circle"></i></span></p>
+					<button onclick="clearText()" style='margin-left:20px;' type="button" class="btn btn-primary shadow"><i class="fa fa-eraser" aria-hidden="true"></i> Clear</button>
+					<button style='margin-left:20px;' class='btn btn-primary shadow' onclick="pasteTextToTextarea()"><i class="fa fa-clipboard" aria-hidden="true"></i> Paste</button>
 				</div>
-				<div class='col-9'>	
+				<div class='col-7'>	
 					<div style='float:right; display:flex; padding-top:16px;' class="range-div">
 					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length:</p>
 						<p style='padding-left:20px; padding-right:20px;'>Short</p>
@@ -105,6 +107,7 @@ function SentenceSummary()
 				</div>
 
 				<div class='col-1'>
+					<button id='copy-btn' style='white-space:nowrap;' class='btn btn-primary' onclick="copyResult()"><i class="fa-solid fa-copy"></i> Copy</button>
 				</div>
 
 				</div>
@@ -133,7 +136,7 @@ function SentenceSummary()
 							<button
 								onclick="handleClick()"
 								id="summarize-btn"
-								class="btn btn-primary btn-md rounded-pill">
+								class="btn btn-primary btn-md rounded-pill shadow-lg">
 								Summarize
 							</button>
 						</div>

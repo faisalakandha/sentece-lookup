@@ -31,7 +31,7 @@ body {
 	letter-spacing: 1px;
 	padding: 1rem;
 	outline:none;
-	border-color: #c2c2c2
+	border-color: #99c2ff;
 }
 .summary-container {
 	width: 100%;
@@ -56,7 +56,7 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.5rem;
-	border-right: 1px solid #C2C2C2;
+	border-right: 1px solid #99c2ff;
 	background-color: #fff;
 }
 .summarize-btn {
@@ -70,7 +70,7 @@ body {
 #summary {
 	padding: 1rem;
 	height: 317px;
-	border-top: 1px solid #C2C2C2;
+	border-top: 1px solid #99c2ff;
 }
 
 #word-count {
@@ -108,7 +108,7 @@ body {
 	color: #fff; /* White text color */
 	text-align: center; /* Centered text */
 	border-radius: 2px; /* Rounded borders */
-	padding: 5px; /* Padding */
+	padding: 10px; /* Padding */
 	position: fixed; /* Sit on top of the screen */
 	z-index: 1; /* Add a z-index if needed */
 	left: 50%; /* Center the snackbar */

@@ -169,3 +169,21 @@ function myFunction(text = " ", time = 3000) {
 		x.className = x.className.replace("show", "");
 	}, time);
 }
+
+function pasteTextToTextarea() {
+  if (!navigator.clipboard) {
+    console.error('Clipboard API is not supported in this browser.');
+    return;
+  }
+
+  navigator.clipboard.readText()
+    .then(function(text) {
+      let textarea = textIp;
+      textarea.value += text;
+    })
+    .catch(function(err) {
+      console.error('Failed to read clipboard contents: ', err);
+    });
+}
+
+
