@@ -1,0 +1,19 @@
+{
+    "name": "grammarlookup/sentence-summary",
+    "description": "A Sentence Summary Tool for Wordpress",
+    "autoload": {
+        "psr-4": {
+            "Grammarlookup\\SentenceSummary\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Faisal Akandha",
+            "email": "faisalakandha24@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpword": "^1.1",
+        "fpdf/fpdf": "^1.85"
+    }
+}
