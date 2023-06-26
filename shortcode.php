@@ -21,7 +21,7 @@ function SentenceSummary()
 		/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-		<link rel="stylesheet" href="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/style.css" />
+		<link rel="stylesheet" href="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/style.css" />
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -51,7 +51,7 @@ function SentenceSummary()
 
         loader.style.display = "block";
 
-        fetch("https://www.grammarlookup.com/wp-json/sentencesummary/v1/summary", requestOptions)
+        fetch("http://wp.docker.localhost:8000/wp-json/sentencesummary/v1/summary", requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 console.log(JSON.stringify(data));
@@ -87,7 +87,7 @@ function SentenceSummary()
 					<button onclick="clearText()" style='margin-left:20px;' type="button" class="btn btn-primary shadow"><i class="fa fa-eraser" aria-hidden="true"></i> Clear</button>
 					<button style='margin-left:20px;' class='btn btn-primary shadow' onclick="pasteTextToTextarea()"><i class="fa fa-clipboard" aria-hidden="true"></i> Paste</button>
 				</div>
-				<div class='col-6'>	
+				<div class='col-4'>	
 					<div style='display:flex; padding-top:16px;' class="range-div">
 					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length: <p style='white-space:nowrap; color:red; font-weight:600px;' id="currentValue">  19</p> </p>
 					<div style='display:flex; position:absolute; margin-left:150px;'>	
@@ -105,7 +105,20 @@ function SentenceSummary()
 					</div>
 				</div>
 
-				<div class='col-2'>
+				<div class='col-4'>
+					<div style="float:right;margin-left:6px;" class="btn-group">
+  <button type="button" class="btn btn-primary"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Download</button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
 					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary' onclick="copyTextToClipboard('summary-output')"><i class="fa-solid fa-copy"></i> Copy</button>
 				</div>
 
@@ -145,19 +158,19 @@ function SentenceSummary()
 					<div style='border-bottom-right-radius:16px;' class="summary-container">
 						<div id="summary">
 							<p id='summary-output' class="summary-text"></p>
-							<img style='margin: 150px;' src="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
+							<img style='margin: 150px;' src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/loading.gif" alt="" class="loader" id="loader" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="snackbar"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  You need minimum 200 Words <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </div>
-		<script src="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/pdf.js"></script>
-		<script src="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/docToText.js"></script>
+		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/pdf.js"></script>
+		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/docToText.js"></script>
 		<script>
 			pdfjsLib.GlobalWorkerOptions.workerSrc = "https://www.grammarlookup.com/wp-content/plugins/sentece-summary/pdf.worker.js";
 		</script>
-		<script src="https://www.grammarlookup.com/wp-content/plugins/sentece-summary/script.js"></script>
+		<script src="http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/script.js"></script>
 	</body>
 </html>
 
