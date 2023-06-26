@@ -106,9 +106,9 @@ function SentenceSummary()
 				</div>
 
 				<div class='col-4'>
-					<div style="float:right;margin-left:6px;" class="btn-group">
-  <button type="button" class="btn btn-primary"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Download</button>
-  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+					<div style="float:right;margin-left:10px;" class="btn-group shadow">
+  <button type="button" class="btn btn-primary disabled"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Download</button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split disabled" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu">
@@ -119,7 +119,7 @@ function SentenceSummary()
     <li><a class="dropdown-item" href="#">Separated link</a></li>
   </ul>
 </div>
-					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary' onclick="copyTextToClipboard('summary-output')"><i class="fa-solid fa-copy"></i> Copy</button>
+					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary shadow' onclick="copyTextToClipboard('summary-output')"><i class="fa-solid fa-copy"></i> Copy</button>
 				</div>
 
 				</div>
