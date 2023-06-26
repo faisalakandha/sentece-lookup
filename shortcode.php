@@ -112,11 +112,9 @@ function SentenceSummary()
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
+    <li><a class="dropdown-item" href="#">.pdf</a></li>
+    <li><a class="dropdown-item" href="#">.doc</a></li>
+    <li><a class="dropdown-item" href="#">.txt</a></li>
   </ul>
 </div>
 					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary shadow' onclick="copyTextToClipboard('summary-output')"><i class="fa-solid fa-copy"></i> Copy</button>
