@@ -234,7 +234,7 @@ function copyTextToClipboard(elementId) {
 }
 
 function downloadFile(type) {
-    fetch('https://www.grammarlookup.com/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText))
+    fetch('http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText))
         .then(function(response) {
             return response.blob();
         })
@@ -271,7 +271,7 @@ function downloadFile(type) {
 
         loader.style.display = "block";
 
-        fetch("https://www.grammarlookup.com/wp-json/sentencesummary/v1/summary", requestOptions)
+        fetch("http://wp.docker.localhost:8000/wp-json/sentencesummary/v1/summary", requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 console.log(JSON.stringify(data));
