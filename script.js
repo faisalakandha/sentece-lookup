@@ -229,8 +229,8 @@ function copyTextToClipboard(elementId) {
   alert('Text copied to clipboard!');
 }
 
-function downloadFile(type) {
-    fetch('http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText))
+function downloadFile(type,nonce) {
+    fetch('http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText) + '&nonce=' + nonce)
         .then(function(response) {
             return response.blob();
         })
@@ -245,3 +245,44 @@ function downloadFile(type) {
             console.log(error);
         });
 }
+
+    const callApi = (nonce) => {
+        const text = textIp.value;
+        const len = text.split(" ").filter(function (n) {
+            return n !== "";
+        }).length;
+
+        if (len < 200) {
+            myFunction();
+            return;
+        }
+
+        const requestOptions = {
+            method: "POST",
+            body: JSON.stringify({ txt: textIp.value, sentences: currentVal.innerText, my_nonce:nonce }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        loader.style.display = "block";
+
+        fetch("http://wp.docker.localhost:8000/wp-json/sentencesummary/v1/summary", requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(JSON.stringify(data));
+                if (data.summary) {
+                    summary.innerText = data.summary;
+                    copyButton.classList.remove("disabled");
+                } else {
+                    summary.innerText = "Invalid";
+                }
+                setTimeout(() => {
+                    window.scrollBy(0, 300);
+                }, 1000);
+            })
+            .catch((error) => console.log("error", error))
+            .finally(() => {
+                loader.style.display = "none";
+            });
+    };

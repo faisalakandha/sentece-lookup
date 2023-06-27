@@ -28,51 +28,8 @@ function SentenceSummary()
 			crossorigin="anonymous"
 		></script>
 		<script>
-    const callApi = () => {
-        const text = textIp.value;
-        const len = text.split(" ").filter(function (n) {
-            return n !== "";
-        }).length;
-
-        if (len < 200) {
-            myFunction();
-            return;
-        }
-
-		const nonce =  "<?php echo wp_create_nonce( 'kamranfaisal'); ?>";
-
-        const requestOptions = {
-            method: "POST",
-            body: JSON.stringify({ txt: textIp.value, sentences: currentVal.innerText, my_nonce:nonce }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-
-        loader.style.display = "block";
-
-        fetch("http://wp.docker.localhost:8000/wp-json/sentencesummary/v1/summary", requestOptions)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(JSON.stringify(data));
-                if (data.summary) {
-                    summary.innerText = data.summary;
-                    copyButton.classList.remove("disabled");
-                } else {
-                    summary.innerText = "Invalid";
-                }
-                setTimeout(() => {
-                    window.scrollBy(0, 300);
-                }, 1000);
-            })
-            .catch((error) => console.log("error", error))
-            .finally(() => {
-                loader.style.display = "none";
-            });
-    };
-
     const handleClick = (e) => {
-        callApi();
+        callApi("<?php echo wp_create_nonce( 'kamranfaisal'); ?>");
     };
 </script>
 
@@ -112,9 +69,9 @@ function SentenceSummary()
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu">
-    <li><a onclick="downloadFile('pdf')" class="dropdown-item" href="#">.pdf</a></li>
-    <li><a onclick="downloadFile('doc')" class="dropdown-item" href="#">.doc</a></li>
-    <li><a onclick="downloadFile('txt')" class="dropdown-item" href="#">.txt</a></li>
+    <li><a onclick="downloadFile('pdf', '<?php echo wp_create_nonce( 'kamranconvert'); ?>')" class="dropdown-item" href="#">.pdf</a></li>
+    <li><a onclick="downloadFile('doc','<?php echo wp_create_nonce( 'kamranconvert'); ?>')" class="dropdown-item" href="#">.doc</a></li>
+    <li><a onclick="downloadFile('txt','<?php echo wp_create_nonce( 'kamranconvert'); ?>')" class="dropdown-item" href="#">.txt</a></li>
   </ul>
 </div>
 					<button id="copy-btn" style='white-space:nowrap; float:right;' class='btn btn-primary shadow' onclick="copyTextToClipboard('summary-output')"><i class="fa-solid fa-copy"></i> Copy</button>
