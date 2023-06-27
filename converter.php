@@ -5,17 +5,11 @@ use Fpdf\Fpdf;
 
 $type = $_GET['type'];
 $text = $_GET['text'];
-$nonce = $_GET['nonce'];
 
-generate_file($type, $text, $nonce);
+generate_file($type, $text);
 
 // Generate the file based on the specified type
-function generate_file($type,$text,$nonce='123') {
-
-     if (!(wp_verify_nonce( $nonce, 'kamranconvert' )) ) 
-     {
-        return "You are not authorized !";
-     }
+function generate_file($type,$text) {
 
     // Generate .txt file
     if ($type === 'txt') {

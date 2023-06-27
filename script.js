@@ -229,8 +229,8 @@ function copyTextToClipboard(elementId) {
   alert('Text copied to clipboard!');
 }
 
-function downloadFile(type,nonce) {
-    fetch('http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText) + '&nonce=' + nonce)
+function downloadFile(type) {
+    fetch('http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText))
         .then(function(response) {
             return response.blob();
         })
