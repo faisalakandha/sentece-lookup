@@ -64,8 +64,8 @@ function SentenceSummary()
 
 				<div class='col-4'>
 					<div style="float:right;margin-left:10px;" class="btn-group shadow">
-  <button onclick="downloadFile('txt')" type="button" class="btn btn-primary"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Download</button>
-  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+  <button id='dwn-btn' onclick="downloadFile('txt')" type="button" class="btn btn-primary"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Download</button>
+  <button id='dwnt-btn' type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu">

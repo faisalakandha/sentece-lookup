@@ -8,6 +8,8 @@ const uploadButton = document.querySelector("#upload-btn");
 const loader = document.getElementById("loader");
 const summarizeButton = document.getElementById("summarize-btn");
 const copyButton = document.getElementById("copy-btn");
+const downloadButton = document.getElementById("dwn-btn");
+const downloadtButton = document.getElementById("dwnt-btn");
 
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -23,6 +25,8 @@ const setDefault = () => {
 	selectedFile = null;
 	loader.classList.add("hide");
 	copyButton.classList.add("disabled");
+	downloadButton.classList.add("disabled");
+	downloadtButton.classList.add("disabled");		
 };
 
 setDefault();
@@ -274,6 +278,8 @@ function downloadFile(type) {
                 if (data.summary) {
                     summary.innerText = data.summary;
                     copyButton.classList.remove("disabled");
+					downloadButton.classList.remove("disabled");
+					downloadtButton.classList.remove("disabled");
                 } else {
                     summary.innerText = "Invalid";
                 }
