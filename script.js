@@ -276,7 +276,7 @@ function downloadFile(type) {
             .then((data) => {
                 console.log(JSON.stringify(data));
                 if (data.summary) {
-                    summary.innerText = data.summary;
+                    summary.innerText = removeEllipses(data.summary);
                     copyButton.classList.remove("disabled");
 					downloadButton.classList.remove("disabled");
 					downloadtButton.classList.remove("disabled");
@@ -292,3 +292,7 @@ function downloadFile(type) {
                 loader.style.display = "none";
             });
     };
+
+function removeEllipses(text) {
+  return text.replace(/\[+\.\.\.\]/g, "");
+}
