@@ -53,7 +53,7 @@ function SentenceSummary()
 							type="range"
 							class="form-range"
 							id="customRange1"
-							max="30"
+							max="10"
 							min="1"
 							placeholder="Enter the text"
 						/>
