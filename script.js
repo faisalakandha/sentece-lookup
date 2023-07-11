@@ -20,7 +20,7 @@ let text = "";
 let selectedFile = null;
 const setDefault = () => {
 	wordCount.classList.add("hide");
-	ranger.value = "19";
+	ranger.value = "5";
 	textIp.value = "";
 	selectedFile = null;
 	loader.classList.add("hide");

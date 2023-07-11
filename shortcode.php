@@ -46,7 +46,7 @@ function SentenceSummary()
 				</div>
 				<div class='col-4'>	
 					<div style='display:flex; padding-top:16px;' class="range-div">
-					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length: <p style='white-space:nowrap; color:red; font-weight:600px;' id="currentValue">  19</p> </p>
+					<p style="padding-top:4px; white-space:nowrap; margin: 0px; font-size: 14px; font-family: 'Open Sans',sans-serif; font-weight: 600; line-height: 20px; color: #434343;">Summary Length: <p style='white-space:nowrap; color:red; font-weight:600px;' id="currentValue">  5</p> </p>
 					<div style='display:flex; position:absolute; margin-left:150px;'>	
 					<p style='padding-left:20px; padding-right:20px;'>Short</p>
 						<input

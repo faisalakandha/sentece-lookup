@@ -56,7 +56,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.5rem;
+	padding: 0.7rem;
 	border-right: 1px solid #99c2ff;
 	background-color: #fff;
 	margin-top: -5.5px;
@@ -70,7 +70,7 @@ body {
 }
 
 #summary {
-	padding: 1rem;
+	padding: 0.5rem;
 	height: 317px;
 	border-top: 1px solid #99c2ff;
 }
