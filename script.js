@@ -32,7 +32,6 @@ const setDefault = () => {
 setDefault();
 
 ranger.addEventListener("input", (e) => {
-	console.log(parseInt(e.target.value, 10) * 3);
 	currentVal.innerText = e.target.value; // Change here. It is the frontend
 });
 
@@ -61,7 +60,6 @@ function getPageText(pageNum, PDFDocumentInstance) {
 
 uploadFile.addEventListener("change", (e) => {
 	const file = e.target.files[0];
-	console.log(file);
 	const fileReader = new FileReader();
 	function onLoadPdfFile() {
 		fileReader.onload = function () {
@@ -92,13 +90,10 @@ uploadFile.addEventListener("change", (e) => {
 
 	function onLoadDocFile() {
 		const docToText = new DocToText();
-		console.log("first");
 		docToText
 			.extractToText(file, "docx")
 			.then((text) => {
-				let s = "";
-				console.log(text.split(" "));
-				// console.log(text);
+				let s = "";;
 				s = text.replace(/(\r\n|\n|\r)/gm, "");
 				setInputValue(s);
 			})
@@ -149,7 +144,6 @@ const updateWordCount = (text) => {
 
 textIp.addEventListener("input", (e) => {
 	// text = newVal;
-	console.log("first");
 	text = e.target.value;
 	updateWordCount(e.target.value);
 });
@@ -169,7 +163,6 @@ function copyResult() {
     // Execute the copy command using execCommand
     var successful = document.execCommand('copy');
     var message = successful ? 'Text copied to clipboard successfully.' : 'Unable to copy text to clipboard.';
-    console.log(message);
 
     // Deselect the textarea
     textarea.setSelectionRange(0, 0);
@@ -219,7 +212,6 @@ function copyTextToClipboard(elementId) {
 
   // Append the textarea to the document body
   document.body.appendChild(textarea);
-  console.log(textarea.value);
   // Select the content of the textarea
   textarea.select();
 
@@ -274,7 +266,6 @@ function downloadFile(type) {
         fetch("https://www.grammarlookup.com/wp-json/sentencesummary/v1/summary", requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                console.log(currentVal.innerText);
                 if (data.summary) {
                     summary.innerText = removeEllipses(data.summary);
                     copyButton.classList.remove("disabled");
