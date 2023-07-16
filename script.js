@@ -32,8 +32,8 @@ const setDefault = () => {
 setDefault();
 
 ranger.addEventListener("input", (e) => {
-	console.log(e.target.value);
-	currentVal.innerText = e.target.value;
+	console.log(parseInt(e.target.value, 10) * 3);
+	currentVal.innerText = e.target.value; // Change here. It is the frontend
 });
 
 function getPageText(pageNum, PDFDocumentInstance) {
@@ -234,7 +234,7 @@ function copyTextToClipboard(elementId) {
 }
 
 function downloadFile(type) {
-    fetch('https://www.grammarlookup.com/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText))
+    fetch('http://wp.docker.localhost:8000/wp-content/plugins/sentece-summary/converter.php?type=' + type + '&text=' + encodeURIComponent(summary.innerText))
         .then(function(response) {
             return response.blob();
         })
@@ -263,7 +263,7 @@ function downloadFile(type) {
 
         const requestOptions = {
             method: "POST",
-            body: JSON.stringify({ txt: textIp.value, sentences: currentVal.innerText, my_nonce:nonce }),
+            body: JSON.stringify({ txt: textIp.value, sentences: `${parseInt(currentVal.innerText, 10) * 3}`, my_nonce:nonce }),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -271,10 +271,10 @@ function downloadFile(type) {
 
         loader.style.display = "block";
 
-        fetch("https://www.grammarlookup.com/wp-json/sentencesummary/v1/summary", requestOptions)
+        fetch("http://wp.docker.localhost:8000/wp-json/sentencesummary/v1/summary", requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                console.log(JSON.stringify(data));
+                console.log(currentVal.innerText);
                 if (data.summary) {
                     summary.innerText = removeEllipses(data.summary);
                     copyButton.classList.remove("disabled");
