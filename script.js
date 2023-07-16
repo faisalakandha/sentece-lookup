@@ -283,9 +283,6 @@ function downloadFile(type) {
                 } else {
                     summary.innerText = "Invalid";
                 }
-                setTimeout(() => {
-                    window.scrollBy(0, 300);
-                }, 1000);
             })
             .catch((error) => console.log("error", error))
             .finally(() => {
